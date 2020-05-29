@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            -webkit-border-radius:50%;
+            -moz-border-radius:50%;
+            border-radius:50%;
+            position: absolute;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn" value="开始运动">
+    <div id="box">
+
+    </div>
+</body>
+    <script>
+        var box = document.getElementById('box');
+        var btn = document.getElementById('btn');
+        var x = box.offsetLeft;
+        var v = 10;
+
+        btn.onclick = function()
+        {
+            var timer = window.setInterval(function(){
+                x+=v;
+                if(x>=window.innerWidth - box.offsetWidth - v){
+                    window.clearInterval(timer);
+                }
+                box.style.left = x + 'px';
+
+            },50)
+        }
+    </script>
+</html>

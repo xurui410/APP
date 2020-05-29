@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 800px;
+            height: 500px;
+            border: 1px solid #000;
+            position: relative;
+        }
+        #ball{
+            width: 40px;
+            height: 40px;
+            background: green;
+            border-radius:50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="开始运动" id="btn">
+
+    <div id="box">
+        <div id="ball"></div>
+    </div>
+</body>
+    <script>
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        var ball = document.getElementById('ball');
+        var x = ball.offsetLeft;//获取初始的left值
+        var y = ball.offsetTop;//获取初始的top值
+        var v = 10;
+        var v1 = 10;
+
+
+        btn.onclick = function()
+        {
+            this.disabled = true;//设置按钮不可用
+            var timer = setInterval(function(){//计时器
+                x +=v;
+                y += v1;
+                //临界值
+                if(x<=0 || x>=box.clientWidth - ball.offsetWidth){
+                    v = -v;
+                }
+                //临界值
+                if(y<=0 || y>=box.clientHeight - ball.offsetHeight){
+                    v1 = -v1;
+                }
+                ball.style.left = x + 'px';
+                ball.style.top = y + 'px';
+            },50)
+        }
+    </script>
+</html>

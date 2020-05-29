@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 600px;
+            height: 200px;
+            border: 1px solid red;
+            position: relative;
+            margin:0 auto;
+        }
+        #div1{
+            width: 50px;
+            height: 50px;
+            background: lawngreen;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="div1"></div>
+    </div>
+</body>
+    <script>
+        var box = document.getElementById('box');
+        var div1 = document.getElementById('div1');
+//        鼠标按下事件
+        div1.onmousedown = function()
+        {
+            var event = window.event || event;
+            var x1 = event.clientX - div1.offsetLeft;//左偏移量
+            var y1 = event.clientY - div1.offsetTop;//右偏移量
+//            console.log(x1);
+//            console.log(y1);
+
+//            鼠标移动事件
+            document.onmousemove = function()
+            {
+                var event = window.event || event;
+                var x = event.clientX - x1;
+//                左临界点
+                if(x <= 0){
+                    x = 0;
+                }else if(x >=box.clientWidth - div1.offsetWidth ){//右临界点
+                    x = box.clientWidth - div1.offsetWidth;
+                }
+                var y = event.clientY - y1;
+//
+                if(y <= 0){//左临界点
+                    y = 0;
+                }else if(y >=box.clientHeight - div1.offsetHeight ){//右临界点
+                    y = box.clientHeight - div1.offsetHeight;
+                }
+//                console.log(x);
+//                console.log(y);
+                div1.style.left = x + 'px';
+                div1.style.top = y + 'px';
+            }
+
+//            鼠标松开事件
+            document.onmouseup = function()
+            {
+                document.onmousemove = null;
+            }
+
+
+        }
+    </script>
+</html>

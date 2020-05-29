@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper{
+            width:800px;
+            border:1px solid blue;
+            height:600px;
+        }
+        .item{
+            width:600px;
+            height:80px;
+            border-bottom:1px dashed blue;
+        }
+        .top{
+            height:30px;
+            margin-top:10px;
+        }
+        .top span{
+            float:left;
+        }
+        .top input{
+            float:right;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div>来，说说你在做什么，想什么</div>
+        <div>
+            <input type="text" id="text1">
+        </div>
+        <div>
+            <textarea name="" id="text2" cols="50" rows="10"></textarea>
+        </div>
+        <div>
+            <input type="button" id="btn" value="发表留言">
+        </div>
+        <div id="content">
+            <div class="item">
+                <div class="top">
+                    <span>小明说：-------</span>
+                    <input type="button" value = "删除" />
+                </div>
+                <div>
+                    01月04日 01:20
+                </div>
+            </div>
+    </div>
+
+</body>
+    <script type="text/javascript" src="liuyanban.js"></script>
+</html>

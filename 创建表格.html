@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+//            获取内容
+            var Name = document.getElementById('name');
+            var Lian = document.getElementById('lian');
+            var Ale = document.getElementById('ale');
+            var Tian = document.getElementById('tian');
+            var Tle = document.getElementById('tle');
+
+//                创建元素
+            Tian.onclick = function(){
+                var Tr = document.createElement('tr');
+                var Td1 = document.createElement('td');
+                var Td2 = document.createElement('td');
+                var Td3 = document.createElement('td');
+                var Td4 = document.createElement('td');
+
+                //添加内容
+                Tle.appendChild(Tr);
+                Tr.appendChild(Td1);
+                Tr.appendChild(Td2);
+                Tr.appendChild(Td3);
+                Tr.appendChild(Td4);
+
+//                添加文本
+                Td1.innerHTML = Name.value;
+                Td2.innerHTML = Lian.value;
+                Td3.innerHTML = Tian.value;
+
+//                创建删除按钮
+                var Del = document.createElement('input');
+                Td4.appendChild(Del);
+                Del.setAttribute('type','button');
+                Del.setAttribute('value','删除');
+
+                Del.onclick = function(){
+                    this.parentNode.parentNode.remove();
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+    姓名:<input type="text" id="name">
+    联系方式:<input type="text" id="lian">
+    年龄:<input type="text" id="ale">
+    <input type="button" id="tian"value="添加用户">
+
+    <table width="500px" border="1" id="tle">
+        <tr>
+            <td>姓名</td>
+            <td>联系方式</td>
+            <td>年龄</td>
+            <td>操作</td>
+        </tr>
+    </table>
+</body>
+</html>

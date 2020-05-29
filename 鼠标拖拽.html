@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: lawngreen ;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+    <script>
+        window.onload = function(){
+            var box = document.getElementById('box');
+            box.onmousedown = function()
+            {
+                var even = window.event||event;
+                var x1 = event.clientX - box.offsetLeft;
+                var y1 = event.clientY - box.offsetTop;
+                console.log('x1='+ x1);
+                console.log('y1='+ y1);
+
+                document.onmousemove = function()
+                {
+                    var even = window.event||event;
+                    var x = event.clientX - x1;
+                    var y = event.clientY - y1;
+                    console.log('x=' + x);
+                    console.log('y=' + y);
+                    box.style.left = x + 'px';
+                    box.style.top = y + 'px';
+                }
+                document.onmouseup =function()
+                {
+                    document.onmousemove = null;
+                }
+
+            }
+        }
+    </script>
+</html>
